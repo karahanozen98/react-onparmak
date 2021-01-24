@@ -1,0 +1,39 @@
+.home {
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+}
+.home-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.home-row-2{
+    display: grid;
+    grid-template-columns: 40% 40%;
+}
+
+.home-col-1 {
+  flex: 4;
+}
+
+.home-exercises{
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+p {
+    padding: 10px;
+    margin: 10px;
+}
+
+.home-col-2 {
+  flex: 1;
+  
+}
+.home-col-2 > img{
+    object-fit: cover;
+    width: 450px; 
+}
