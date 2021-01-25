@@ -11,7 +11,7 @@
 
 .home-row-2{
     display: grid;
-    grid-template-columns: 40% 40%;
+    grid-template-columns: 50% 50%;
 }
 
 .home-col-1 {
@@ -22,6 +22,12 @@
     border: 1px solid black;
     margin: 20px;
     padding: 20px;
+}
+.home-exercises-ul{
+  list-style: none;
+}
+.home-exercises-ul > li {
+  margin: 10px;
 }
 
 p {

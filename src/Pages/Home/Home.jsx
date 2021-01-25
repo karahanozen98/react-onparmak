@@ -1,6 +1,7 @@
 import React from "react";
 import keyboardImage from "../../static/images/q-10.png";
-import Exercise from "../Exercise/Exercise"
+import Exercise from "../Exercise/Exercise";
+import { Button } from "reactstrap";
 import "./Home.css";
 
 function Home() {
@@ -45,33 +46,33 @@ function Home() {
       </div>
       <h2>10 Parmak Egzersizleri</h2>
       <h6>
-          Mevcut klavye düzeninize ait olan her egzerisizi sırasıyla tamamlayın.
-          Egzersizleri 60 saniyeden kısa süre içinde en fazla 3 hata ile
-          bitirirseniz sonraki egzerisize geçebilirsiniz.
-        </h6>
+        Mevcut klavye düzeninize ait olan her egzerisizi sırasıyla tamamlayın.
+        Egzersizleri <strong>60 saniyeden kısa süre içinde en fazla 3 hata ile </strong>
+        bitirirseniz sonraki egzerisize geçmeniz önerilir.
+      </h6>
       <div className="home-row-2">
-                <div className="home-exercises">
-                    <h5>QWERTY-Klavye</h5>
-                    <ul>
-                        <li>
-                            Exercise-1
-                        </li>
-                        <li>
-                            Exercise-2
-                        </li>
-                        <li>
-                            Exercise-3
-                        </li>
-                        <li>
-                            Exercise-4
-                        </li>
-                    </ul>
-                </div>
-                <div className="home-exercises">
-                    <h5>F-Klavye</h5>
-                    
-                </div>
-        
+        <div className="home-exercises">
+          <h5>QWERTY-Klavye</h5>
+          <ul className="home-exercises-ul">
+            <li>
+              <Button> Egzersiz-1</Button> Sol el 'a' 's' 'd' 'f' ve boşluk
+              karakterileri.
+            </li>
+            <li>
+              <Button> Egzersiz-2</Button> Sağ el 'j' 'k' 'l' 'ş' 'i' ve boşluk
+              karakterileri.
+            </li>
+            <li>
+              <Button> Egzersiz-3</Button>
+            </li>
+            <li>
+              <Button> Egzersiz-4</Button>
+            </li>
+          </ul>
+        </div>
+        <div className="home-exercises">
+          <h5>F-Klavye</h5>
+        </div>
       </div>
       <Exercise></Exercise>
     </div>
