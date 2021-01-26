@@ -1,12 +1,12 @@
-import {} from "bootstrap";
 import React, { useState, useEffect, useRef } from "react";
+import scrollIntoSection from "../../Components/ScrollIntoSection/ScrollIntoSection"
 import { Button, Alert } from "reactstrap";
-import "./Exercise.css";
+import "./ExerciseComponent.css";
 
-function Exercise(props) {
+function ExerciseComponent(props) {
   const [color, setColor] = useState("#fff");
   const [input, _setInput] = useState("");
-  const [text, _setText] = useState("aaa sss dddd ffff");
+  const [text, _setText] = useState("aaaa ssss dddd ffffff aa");
   const [isListening, setListening] = useState(false);
   const [time, setTime] = useState(null);
   const [error, setError] = useState(null);
@@ -29,21 +29,26 @@ function Exercise(props) {
   };
 
   useEffect(() => {
-    if (isListening) window.addEventListener("keydown", keyListener);
-    else window.removeEventListener("keydown", keyListener);
     return () => {
       window.removeEventListener("keydown", keyListener);
+      setListening(false);
+      setTime(null);
     };
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (isListening) window.addEventListener("keydown", keyListener);
+    else window.removeEventListener("keydown", keyListener);
     //eslint-disable-next-line
   }, [isListening]);
 
   function keyListener(event) {
-    event.preventDefault();
     let tmpInput = inputRef.current;
     let tmpText = textRef.current;
     const currentChar = tmpText[0];
-    if (currentChar === event.key) {
-      tmpInput += event.key;
+    if (currentChar === event.key.toString().toLowerCase()) {
+      tmpInput += event.key.toString().toLowerCase();
       tmpText = tmpText.substring(1, text.length);
       setInput(tmpInput);
       setText(tmpText);
@@ -65,6 +70,7 @@ function Exercise(props) {
   }
   const startExercise = () => {
     document.getElementById("btnStart").blur();
+    scrollIntoSection("currentExercise");
     setListening(true);
     setTime(null);
     exerciseObj.current = { startTime: new Date(), errors: 0, endTime: null };
@@ -78,6 +84,7 @@ function Exercise(props) {
 
   return (
     <div className="exercise">
+      {/* <h2>{props.exercise.name}</h2> */}
       <Button
         id="btnStart"
         disabled={isListening}
@@ -86,11 +93,15 @@ function Exercise(props) {
       >
         Başlat
       </Button>
-
       <Button disabled={!isListening} color="danger" onClick={stopExercise}>
         Durdur
       </Button>
-      <Alert className={time ? "alert-visible" : "alert-hidden"}
+      <div className="exercise-text" style={{ background: color }}>
+        <strong style={{ background: "#d4edda" }}>{input}</strong>
+        {text}
+      </div>
+      <Alert
+        className={time ? "alert-visible" : "alert-hidden"}
         color={time <= 60 && error <= 3 ? "success" : "danger"}
       >
         <span>
@@ -104,11 +115,7 @@ function Exercise(props) {
           Kapat
         </Button>
       </Alert>
-      <div className="exercise-text" style={{ background: color }}>
-        <strong style={{ background: "#d4edda" }}>{input}</strong>
-        {text}
-      </div>
     </div>
   );
 }
-export default Exercise;
+export default ExerciseComponent;

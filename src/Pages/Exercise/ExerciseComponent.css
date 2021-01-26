@@ -1,0 +1,33 @@
+.exercise {
+  text-align: center;
+}
+
+.exercise > button {
+  margin: 10px;
+}
+.alert {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-transition: .6s ease-out;
+  transition: .6s ease-out;
+}
+
+.alert-visible {
+  opacity: 1;
+  order: 1;
+}
+.alert-hidden {
+  opacity: 0;
+  order: 3;
+}
+
+.exercise-text {
+  font-size: 1.2rem;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 30px;
+  order: 2;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import keyboardImage from "../../static/images/q-10.png";
-import Exercise from "../Exercise/Exercise";
+import ExerciseComponent from "../Exercise/ExerciseComponent";
+import { exerciseData } from "../../Components/ExerciseData/exerciseData";
 import { Button } from "reactstrap";
 import "./Home.css";
 
@@ -8,8 +9,7 @@ function Home() {
   return (
     <div className="home">
       <div className="home-row">
-        <div className="home-col-1">
-          <h1>ON PARMAK EĞİTİM VE UYGULAMALARI</h1>
+        <section id="onparmak" className="home-col-1">
           <h2>On Parmak Nedir?</h2>
           <p>
             10 parmak klavyeye bakmadan yazma becerisidir. Hızlı yazmayı
@@ -35,10 +35,10 @@ function Home() {
             girişimine benzetilebilir.
           </p>
           <p>
-            Kaynak:{" "}
+            Kaynak:
             <a href="https://tr.wikipedia.org/wiki/On_parmak">Vikipedi</a>
           </p>
-        </div>
+        </section>
         <div className="home-col-2">
           <img alt="ornekresim" src={keyboardImage}></img>
           <p>10 Parmak kullanımına yönelik örnek klavye tutuşu</p>
@@ -47,34 +47,36 @@ function Home() {
       <h2>10 Parmak Egzersizleri</h2>
       <h6>
         Mevcut klavye düzeninize ait olan her egzerisizi sırasıyla tamamlayın.
-        Egzersizleri <strong>60 saniyeden kısa süre içinde en fazla 3 hata ile </strong>
+        Egzersizleri
+        <strong>60 saniyeden kısa süre içinde en fazla 3 hata ile </strong>
         bitirirseniz sonraki egzerisize geçmeniz önerilir.
       </h6>
-      <div className="home-row-2">
-        <div className="home-exercises">
-          <h5>QWERTY-Klavye</h5>
-          <ul className="home-exercises-ul">
-            <li>
-              <Button> Egzersiz-1</Button> Sol el 'a' 's' 'd' 'f' ve boşluk
-              karakterileri.
-            </li>
-            <li>
-              <Button> Egzersiz-2</Button> Sağ el 'j' 'k' 'l' 'ş' 'i' ve boşluk
-              karakterileri.
-            </li>
-            <li>
-              <Button> Egzersiz-3</Button>
-            </li>
-            <li>
-              <Button> Egzersiz-4</Button>
-            </li>
-          </ul>
-        </div>
-        <div className="home-exercises">
-          <h5>F-Klavye</h5>
-        </div>
+      <section id="egzersizler" className="home-row-2">
+        {exerciseData.map((category) => {
+          return (
+            <div className="home-exercises">
+              <h5>{category.type}</h5>
+              <ul className="home-exercises-ul">
+                {category.data.map((exercise) => {
+                  return (
+                    <li>
+                      <Button color={exercise.isCompleted ? "success" : "dark"}>
+                        {exercise.name}
+                      </Button>
+                      <span className="home-exercises-span">
+                        {exercise.description}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </section>
+      <div id="currentExercise" className="home-exercise">
+        <ExerciseComponent></ExerciseComponent>
       </div>
-      <Exercise></Exercise>
     </div>
   );
 }

@@ -1,3 +1,0 @@
-function  Level(chars, length) {
-    
-}
