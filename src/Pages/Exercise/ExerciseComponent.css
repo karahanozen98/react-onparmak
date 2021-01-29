@@ -25,7 +25,8 @@
 }
 
 .exercise-text {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
   border: 1px solid black;
   margin: 20px;
   padding: 30px;
