@@ -32,6 +32,8 @@ function ExerciseComponent({ exercise, UpdateExercises }) {
   useEffect(() => {
     setText(generateExercise(exercise));
     setListening(false);
+    stopExercise();
+    // eslint-disable-next-line
   }, [exercise]);
 
   // for listener to attach and detach due to user input or component unmount
