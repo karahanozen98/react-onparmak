@@ -1,3 +1,12 @@
+# Touch typing exercises
+<strong>This project is created with React + Bootstrap</strong><br>
+Touch typing (also called touch type or touch keyboarding) is a style of typing. Although the phrase refers to typing without using the sense of sight to find the keys—specifically, a touch typist will know their location on the keyboard through muscle memory. This app aims to improve musclue memory of all of your fingers<br><br>
+<img src="/screenshots/1.jpeg"></img><br>
+<img src="/screenshots/2.jpeg"></img><br>
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
