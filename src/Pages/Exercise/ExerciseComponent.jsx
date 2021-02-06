@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import generateExercise from "../../Components/generateExercise/generateExercise";
 import scrollIntoSection from "../../Components/ScrollIntoSection/ScrollIntoSection";
 import { Button, Alert } from "reactstrap";
+import image from "../../static/images/q.png";
 import "./ExerciseComponent.css";
 
 function ExerciseComponent({ exercise, UpdateExercises }) {
@@ -30,9 +31,9 @@ function ExerciseComponent({ exercise, UpdateExercises }) {
   };
 
   useEffect(() => {
+    stopExercise();
     setText(generateExercise(exercise));
     setListening(false);
-    stopExercise();
     // eslint-disable-next-line
   }, [exercise]);
 
@@ -103,7 +104,11 @@ function ExerciseComponent({ exercise, UpdateExercises }) {
 
   return (
     <div className="exercise">
-      {/* <h2>{props.exercise.name}</h2> */}
+      <figure>
+        <img alt="Örnek Klavye Tutuşu" src={image}></img>
+        <figcaption>Örnek Klavye Tutuşu</figcaption>
+      </figure>
+
       <Button
         id="btnStartExercise"
         disabled={isListening}
@@ -116,12 +121,12 @@ function ExerciseComponent({ exercise, UpdateExercises }) {
         Durdur
       </Button>
       <div className="exercise-text" style={{ background: color }}>
-        <strong style={{ background: "#d4edda" }}>{input}</strong>
+        <span style={{ background: "#d4edda" }}>{input}</span>
         {text}
       </div>
       <Alert
         className={time ? "alert-visible" : "alert-hidden"}
-        color={time <= 60 && error <= 3 ? "success" : "danger"}
+        color={time <= 50 && error <= 3 ? "success" : "danger"}
       >
         <span>
           {"Tamamlandı " + Math.floor(time) + " saniye " + error + " hata"}

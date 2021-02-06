@@ -41,12 +41,15 @@ function Home() {
       <h6>
         Mevcut klavye düzeninize ait olan her egzerisizi sırasıyla tamamlayın.
         Egzersizleri
-        <strong>60 saniyeden kısa süre içinde en fazla 3 hata ile </strong>
+        <strong> 60 saniyeden kısa süre içinde en fazla 3 hata ile </strong>
         bitirirseniz sonraki egzerisize geçmeniz önerilir.
       </h6>
-    
-        <ExerciseList exerciseData={exercises} currExercise={currExercise} setExercise={setExercise} />
-      
+
+      <ExerciseList
+        exerciseData={exercises}
+        currExercise={currExercise}
+        setExercise={setExercise}
+      />
       {currExercise && (
         <div id="currentExercise" className="home-exercise">
           <ExerciseComponent

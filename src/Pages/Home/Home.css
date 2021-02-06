@@ -23,7 +23,7 @@
 .home-exercises {
   border: 1px solid black;
   margin: 20px;
-  padding: 20px;
+  padding: 5px;
 }
 .home-exercises-ul {
   list-style: none;
@@ -49,6 +49,21 @@ p {
   object-fit: cover;
   width: 100%;
   min-width: 350px;
+}
+.exercise-table > tr {
+  display: grid;
+  grid-template-columns: 50px 120px auto;
+}
+
+.exercise-difficulty {
+  display: inline-block;
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 50%;
 }
 
 @media (max-width: 900px) {

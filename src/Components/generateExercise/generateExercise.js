@@ -11,7 +11,7 @@ function generateExercise(exercise) {
         ];
       randLength = Math.floor(Math.random() * 6 + 2);
       for (let i = 0; i < randLength; i++) resultStr += randomChar;
-    } else if (exercise.difficulty === "normal") {
+    } else {
       randLength = Math.floor(Math.random() * 6 + 2);
       for (let i = 0; i < randLength; i++) {
         randomChar =
